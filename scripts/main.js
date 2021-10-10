@@ -147,6 +147,9 @@ async function checkResult() {
         popup.style.transform = "translateY(-200%)"
         await sleep(500);
         popup.style.display = "none";
+
+
+        setup()
 }
 
 function switchType() {
