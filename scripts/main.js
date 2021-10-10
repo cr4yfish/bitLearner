@@ -123,19 +123,39 @@ async function checkResult() {
         sleepTime = 5000;
     }
 
+  
+
     const popup = document.getElementById("popup")
 
 
         // manipulate if wrong
         if(!correct) {
             document.getElementById("popupMessage").textContent = "Wrong!"
-            let corretAnswer = document.createElement("span");
+
+  
+            if(popup.children.length == 0) {
+                let corretAnswer = document.createElement("span");
                 corretAnswer.textContent = `Correct answer would be: ${_RESULT.value}`;
-            popup.appendChild(corretAnswer);
+                popup.appendChild(corretAnswer);
+            }
+            
 
             popup.style.color = "var(--red)";
             popup.style.backgroundColor = "var(--light-red)";
 
+        } else {
+            document.getElementById("popupMessage").textContent = "Correct!"
+
+            if(popup.children.length == 0) {
+                let corretAnswer = document.createElement("span");
+                corretAnswer.textContent = `Good job!`;
+
+            popup.appendChild(corretAnswer);
+            }
+  
+
+            popup.style.color = "var(--green)";
+            popup.style.backgroundColor = "var(--light-green)";
         }
 
         popup.style.display = "flex";
@@ -143,13 +163,14 @@ async function checkResult() {
         popup.style.transform = "translateY(0%)";
 
         await sleep(sleepTime);
+        setup()
 
         popup.style.transform = "translateY(-200%)"
         await sleep(500);
         popup.style.display = "none";
 
 
-        setup()
+
 }
 
 function switchType() {
@@ -165,7 +186,8 @@ function switchType() {
         
 }
 
-(function setup() {
+function setup() {
+    console.log("Refreshing");
 
     // make a random number
     const number = makeRandomBinary()
@@ -175,11 +197,12 @@ function switchType() {
     _RESULT = new DigitalNumber(number)
         _RESULT.decimal;
     
-})();
+    // clear input field
+    document.getElementById("numberInput").value = "";
+}
 
 
 function makeRandomBinary() {
-
     const bitLength = 4;
 
     let bitArray = []
@@ -189,3 +212,5 @@ function makeRandomBinary() {
     }
     return parseInt(bitArray.join(""));
 }
+
+setup();
