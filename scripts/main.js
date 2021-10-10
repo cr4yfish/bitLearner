@@ -133,7 +133,7 @@ async function checkResult() {
             document.getElementById("popupMessage").textContent = "Wrong!"
 
   
-            if(popup.children.length == 0) {
+            if(popup.children.length < 2) {
                 let corretAnswer = document.createElement("span");
                 corretAnswer.textContent = `Correct answer would be: ${_RESULT.value}`;
                 popup.appendChild(corretAnswer);
@@ -146,7 +146,7 @@ async function checkResult() {
         } else {
             document.getElementById("popupMessage").textContent = "Correct!"
 
-            if(popup.children.length == 0) {
+            if(popup.children.length < 2) {
                 let corretAnswer = document.createElement("span");
                 corretAnswer.textContent = `Good job!`;
 
