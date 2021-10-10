@@ -168,6 +168,7 @@ header {
 #popup {
     position: absolute;
     background-color: var(--light-green);
+    color: var(--green);
     transform: translateY(-200%);
     border-radius: 3px;
     padding: .75rem 2rem;
@@ -175,6 +176,7 @@ header {
     height: 2rem;
     z-index: 3;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
@@ -183,8 +185,12 @@ header {
     transition: all 0.5s;
 }
 
-#popupMessage {
+#popup span {
+    color: inherit;
     font-size: 16pt;
-    color: var(--green);
     text-align: center;
+}
+
+#popup span:last-of-type {
+    font-size: 11pt;
 }
