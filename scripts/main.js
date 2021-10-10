@@ -166,7 +166,7 @@ function switchType() {
 
     // make a random number
     const number = makeRandomBinary()
-    document.getElementById("task").textContent = number;
+    document.querySelector("#task h3").textContent = number;
 
     // get result
     _RESULT = new DigitalNumber(number)
