@@ -100,6 +100,56 @@ let inputField = document.getElementById("numberInput")
     })
 
 
+// set startup theme
+const userTheme = localStorage.getItem("theme");
+if(userTheme != null) {
+    if(userTheme == "1") {
+        switchTheme("dark")
+    } else {
+        switchTheme("light");
+    }
+}
+
+function switchTheme(theme) {
+    const switcher = document.getElementById("themeSwitcher");
+    if(theme == "dark") {
+        // darkmode
+        const allElements = document.querySelectorAll(".lightmode");
+        console.log(allElements);
+        allElements.forEach(function(element) {
+            element.classList.remove("lightmode");
+            element.classList.add("darkmode");
+        })
+
+        // switch icon
+        switcher.setAttribute("class", "fas fa-moon")
+        switcher.style.color = "var(--beige)"
+
+        switcher.setAttribute("onclick", "switchTheme('light')")
+
+        // set localstorage
+        localStorage.setItem("theme", "1");
+    } else {
+        // lightmode
+        const allElements = document.querySelectorAll(".darkmode");
+        console.log(allElements);
+        allElements.forEach(function(element) {
+            element.classList.remove("darkmode");
+            element.classList.add("lightmode");
+        })
+
+
+        // switch icon
+        switcher.setAttribute("class", "far fa-moon")
+        switcher.style.color = "var(--black)"
+
+        switcher.setAttribute("onclick", "switchTheme('dark')")
+
+        // set localstorage
+        localStorage.setItem("theme", "0");
+    }
+}
+
 async function checkResult() {
     let correct = false;
     
@@ -124,50 +174,37 @@ async function checkResult() {
     }
 
   
-
     const popup = document.getElementById("popup")
 
 
-        // manipulate if wrong
+        // manipulate popup
         if(!correct) {
+            console.log("manipulating wrong")
             document.getElementById("popupMessage").textContent = "Wrong!"
-
-  
-            if(popup.children.length < 2) {
-                let corretAnswer = document.createElement("span");
-                corretAnswer.textContent = `Correct answer would be: ${_RESULT.value}`;
-                popup.appendChild(corretAnswer);
-            }
-            
+            document.getElementById("popupMotivator").textContent = `Correct answer would be: ${_RESULT.value}`;
 
             popup.style.color = "var(--red)";
             popup.style.backgroundColor = "var(--light-red)";
 
         } else {
+            console.log("manipulating correct")
             document.getElementById("popupMessage").textContent = "Correct!"
-
-            if(popup.children.length < 2) {
-                let corretAnswer = document.createElement("span");
-                corretAnswer.textContent = `Good job!`;
-
-            popup.appendChild(corretAnswer);
-            }
-  
+            document.getElementById("popupMotivator").textContent = `Good job!`;
 
             popup.style.color = "var(--green)";
             popup.style.backgroundColor = "var(--light-green)";
         }
 
-        popup.style.display = "flex";
-        await sleep(500);
-        popup.style.transform = "translateY(0%)";
+    popup.style.display = "flex";
+    await sleep(500);
+    popup.style.transform = "translateY(0%)";
 
-        await sleep(sleepTime);
-        setup()
+    await sleep(sleepTime);
+    setup()
 
-        popup.style.transform = "translateY(-200%)"
-        await sleep(500);
-        popup.style.display = "none";
+    popup.style.transform = "translateY(-200%)"
+    await sleep(500);
+    popup.style.display = "none";
 
 
 

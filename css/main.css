@@ -1,4 +1,4 @@
-:root{
+:root {
     --light-beige: #F6EFE2;
     --light-blue: #E9F7FC;
     --light-red: #F1DADA;
@@ -13,11 +13,53 @@
     --black: #161616;
     --orange: #605135;
     --green: #52624D;
+
+    --site-bg: #ffff;
+}
+
+.lightmode {
+    --light-beige: #F6EFE2;
+    --light-blue: #E9F7FC;
+    --light-red: #F1DADA;
+    --light-black: #888888;
+    --lighter-black: #6B6B6B;
+    --light-orange: #F1D08F;
+    --light-green: #DFF8D7;
+
+    --beige: #544E43;
+    --blue: #63747A;
+    --red: #7D6E6E;
+    --black: #161616;
+    --orange: #605135;
+    --green: #52624D;
+
+    --site-bg: #ffff;
+}
+
+.darkmode {
+    --light-beige: #392f1d;
+    --light-blue: #1c2c2e;
+    --light-red: #341f1a;
+    --light-black: #646057;
+    --lighter-black: #6B6B6B;
+    --light-orange: #6e572c;
+    --light-green: #DFF8D7;
+
+    --beige: #d5c4a8;
+    --blue: #b9aa8f;
+    --red: #b4a58b;
+    --black: #fffddd;
+    --orange: #e1cba4;
+    --green: #52624D;
+
+    --site-bg: #1d1c19;
 }
 
 body,html {
     overflow-x: hidden;
     margin: 0;
+    background-color: var(--site-bg);
+    transition: all .25s;
 }
 
 body,html,main {
@@ -47,6 +89,10 @@ header {
     height: 5rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
 #logoWrapper h1 {
@@ -61,6 +107,10 @@ header {
     padding: 0 .5rem;
     width: fit-content;
     height: fit-content;
+}
+
+#themeSwitcher {
+    cursor: pointer;
 }
 
 #switch {
@@ -117,6 +167,9 @@ header {
     text-align: center;
     font-family: sans-serif;
 }
+#task h3 {
+    color: var(--black)
+}
 
 #inputWrapper {
     display: flex;
@@ -130,9 +183,8 @@ header {
     position: absolute;
     left: .5rem;
     color: var(--light-black);
-    background-color: white;
+    background-color: var(--site-bg);
     font-size: 10pt;
-    transition: all .25s;
     padding: 0 .5rem;
     user-select: none;
 }
@@ -144,6 +196,7 @@ header {
     height: 100%;
     width: 100%;
     padding-left: 1rem;
+    color: var(--black)
 }
 
 #checkBtn {

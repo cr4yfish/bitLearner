@@ -13,51 +13,53 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     </head>
-    <body>
+    <body class="lightmode">
 
         <main>
 
-            <div id="popup">
-                <span id="popupMessage">Correct!</span>
+            <div id="popup" class="lightmode">
+                <span id="popupMessage" class="lightmode">Correct!</span>
+                <span id="popupMotivator">Good job!</span>
             </div>
 
 
-
             <header>
-                <div id="logoWrapper">
-                    <div id="logoBG"><h1>Bitleaner</h1></div>
+                <div id="logoWrapper" class="lightmode">
+                    <div id="logoBG" class="lightmode"><h1>Bitleaner</h1></div>
                 </div>
+
+                <i onclick="switchTheme('dark')" id="themeSwitcher" class="far fa-moon"></i>
             </header>
 
-            <div id="switch">
+            <div id="switch" class="lightmode">
 
-                <div class="typeWrapper">
+                <div class="typeWrapper lightmode">
                     <h2>Binary</h2>
                 </div>
 
-                <div id="switchBtnWrapper">
-                    <i id="arrow" class="fas fa-arrow-right"></i>
-                    <button onclick="switchType();" id="switchBtn">switch!</button>
+                <div id="switchBtnWrapper" class="lightmode">
+                    <i id="arrow" class="fas fa-arrow-right lightmode"></i>
+                    <button onclick="switchType();" id="switchBtn" class="lightmode">switch!</button>
                 </div>
 
-                <div class="typeWrapper">
+                <div class="typeWrapper lightmode">
                     <h2>Decimal</h2>
                 </div>
 
             </div>
 
-            <div id="task">
+            <div id="task" class="lightmode">
                 <h3>100111</h3>
             </div>
 
-            <div id="inputWrapper">
-                <label id="inputLabel" for="numberInput">Enter Decimal</label>
-                <input type="number" name="numberInput" id="numberInput" required>
+            <div id="inputWrapper" class="lightmode">
+                <label id="inputLabel" for="numberInput" class="lightmode">Enter Decimal</label>
+                <input type="number" name="numberInput" id="numberInput" required class="lightmode">
             </div>
 
-            <button onclick="checkResult();" id="checkBtn">Check</button>
+            <button onclick="checkResult();" id="checkBtn" class="lightmode">Check</button>
 
-            <span id="comment">Made without coffee by <b>Manuel</b></span>
+            <span id="comment" class="lightmode">Made without coffee by <b>Manuel</b></span>
 
         </main>
         
