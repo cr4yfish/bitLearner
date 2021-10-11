@@ -187,6 +187,7 @@ header {
     font-size: 10pt;
     padding: 0 .5rem;
     user-select: none;
+    transition: all .25s
 }
 
 #inputWrapper input {
@@ -196,8 +197,14 @@ header {
     height: 2rem;
     width: 100%;
     padding-left: 1rem;
-    color: var(--black)
+    color: var(--black);
 }
+
+#inputWrapper input:focus-visible {
+    border: 2px solid var(--light-orange);
+    outline: none;
+}
+
 
 #checkBtn {
     margin: 2rem;
